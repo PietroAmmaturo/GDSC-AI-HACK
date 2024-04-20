@@ -25,19 +25,20 @@ SECRET_KEY = 'sth^hh8e+g%jo5(zr7+ozv0)+uq&t93u!i@2mp*kfu2+xog2b0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gdsc-ai-hack.vercel.app']
+ALLOWED_HOSTS = ['gdsc-ai-hack.vercel.app', '127.0.0.1']
 
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 # Application definition
 
 INSTALLED_APPS = [
+    'api',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'authenticate',
 ]
 
 MIDDLEWARE = [
