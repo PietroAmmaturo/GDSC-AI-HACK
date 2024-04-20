@@ -38,17 +38,20 @@ def home(request):
 						{
 							"question": "Question 1",
 							"options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-							"answer": "Option 1"
+							"answer": "Option 1",
+       						"explanation": "explanation example"
 						},
 						{
 							"question": "Question 2",
 							"options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-							"answer": "Option 1"
+							"answer": "Option 1",
+       						"explanation": "explanation example"
 						},
 						{
 							"question": "Question 3",
 							"options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-							"answer": "Option 3"
+							"answer": "Option 3",
+       						"explanation": "explanation example"
 						}
 					]
 				},
@@ -69,7 +72,8 @@ def home(request):
 						{
 							"question": "Question 1",
 							"options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-							"answer": "Option 1"
+							"answer": "Option 1",
+							"explanation": "explanation example"
 						}
 					]
 				},
@@ -90,7 +94,8 @@ def home(request):
 						{
 							"question": "Question 1",
 							"options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-							"answer": "Option 1"
+							"answer": "Option 1",
+       						"explanation": "explanation example"
 						}
 					]
 				}
