@@ -1,23 +1,25 @@
-{% extends 'base.html' %}
+<h1>{{ course.title }}</h1> <p>{{ course.description }}</p> <h2>Chapters</h2>
+<ul>
+  {% for chapter in course.chapters %}
+	<li>
+	  <h3>{{ chapter.title }}</h3> <p>{{ chapter.description }}</p> <h4>Concepts</h4>
+	  <ul>
+		{% for concept in chapter.concepts %}
+		  <li>{{ concept.name }}: {{ concept.description }}</li> {% endfor %}
+	  </ul>
 
-{% block content %}
-
-<h1> Home page</h1>
-
-{% if user.is_authenticated %}
-	<p>Name: {{user.first_name}} {{ user.last_name}}</p>
-	<p>Username: {{user.username}}</p>
-	
-	<p>Email: {{user.email}}</p>
-
-    <p>Course: {{course_name }}</p>
-
-	<form method="post" enctype="multipart/form-data">
-		{% csrf_token %}
-		<label for="file">Select a file:</label>
-		<input type="file" id="file" name="file">
-		<input type="submit" value="Upload">
-	  </form>
-{% endif %}
-
-{% endblock %}
+	  <h4>Questions</h4>
+	  <ul>
+		{% for question in chapter.questions %}
+		  <li>
+			<b>{{ question.question }}</b> <ul>
+			  <li>Options:</li>
+			  {% for option in question.options %}
+				<li>{{ option }}</li> {% endfor %}
+			  <li>Answer: <b>{{ question.answer }}</b></li> </ul>
+		  </li>
+		{% endfor %}
+	  </ul>
+	</li>
+  {% endfor %}
+</ul>

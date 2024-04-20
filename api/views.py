@@ -18,17 +18,93 @@ def home(request):
         file_name = f"{file_uuid}.pdf"
         actual_file_name = fs.save(file_name, uploaded_file)
         course_dict = {
-      		'title': 'Introduction to Django',
-			'description': 'A comprehensive introduction to building web applications with Django framework.',
-			'source_file': actual_file_name
+			"title": "Test title",
+			"description": "Test description",
+			"chapters": [
+				{
+					"title": "Chapter 1",
+					"description": "breve frase per introdurre il capitolo",
+					"concepts": [
+						{
+							"name": "Concept 1",
+							"description": "breve frase per introdurre il concetto, tipo bullet point"
+						},
+						{
+							"name": "Concept 2",
+							"description": "breve frase per introdurre il concetto, tipo bullet point"
+						}
+					],
+					"questions": [
+						{
+							"question": "Question 1",
+							"options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+							"answer": "Option 1"
+						},
+						{
+							"question": "Question 2",
+							"options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+							"answer": "Option 1"
+						},
+						{
+							"question": "Question 3",
+							"options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+							"answer": "Option 3"
+						}
+					]
+				},
+				{
+					"title": "Chapter 2",
+					"description": "breve frase per introdurre il capitolo",
+					"concepts": [
+						{
+							"name": "Concept 1",
+							"description": "breve frase per introdurre il concetto, tipo bullet point"
+						},
+						{
+							"name": "Concept 2",
+							"description": "breve frase per introdurre il concetto, tipo bullet point"
+						}
+					],
+					"questions": [
+						{
+							"question": "Question 1",
+							"options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+							"answer": "Option 1"
+						}
+					]
+				},
+				{
+					"title": "Chapter 3",
+					"description": "breve frase per introdurre il capitolo",
+					"concepts": [
+						{
+							"name": "Concept 1",
+							"description": "breve frase per introdurre il concetto, tipo bullet point"
+						},
+						{
+							"name": "Concept 2",
+							"description": "breve frase per introdurre il concetto, tipo bullet point"
+						}
+					],
+					"questions": [
+						{
+							"question": "Question 1",
+							"options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+							"answer": "Option 1"
+						}
+					]
+				}
+			],
+			"source_file": actual_file_name
 		}
         new_course = Course.objects.create(
 			title=course_dict['title'],
 			description=course_dict['description'],
+   			chapters=course_dict['chapters'],
 			source_file=course_dict['source_file']
 		)
         # call function to create course
-        return redirect('course/?course=' + new_course.id)
+        return redirect('course/?course=' + str(new_course.id))
     else:
         return render(request, 'home.html', {})
 
@@ -36,7 +112,8 @@ def course (request):
     # Retrieve parameters from request.GET
     user = request.GET.get('user')
     course_id = request.GET.get('course')
-    context = {'user': user, 'course_name': course_id}
+    course = Course.objects.get(id=course_id)
+    context = {'user': user, 'course': course}
     return render(request, 'course.html', context)
     
 def login_user (request):

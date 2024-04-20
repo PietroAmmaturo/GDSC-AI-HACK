@@ -2,20 +2,94 @@
 
 {% block content %}
 
-<h1> Home page</h1>
+<h1>Home page</h1>
 
 {% if user.is_authenticated %}
-	<p>Name: {{user.first_name}} {{ user.last_name}}</p>
-	<p>Username: {{user.username}}</p>
-	
-	<p>Email: {{user.email}}</p>
+  <p>Name: {{user.first_name}} {{ user.last_name}}</p>
+  <p>Username: {{user.username}}</p>
+  <p>Email: {{user.email}}</p>
 {% endif %}
 
-<form method="post" enctype="multipart/form-data">
-	{% csrf_token %}
-	<label for="file">Select a file:</label>
-	<input type="file" id="file" name="file">
-	<input type="submit" value="Upload">
-  </form>
-  
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  #file-drop-area {
+    border: 2px dashed #ccc;
+    padding: 2rem;
+    text-align: center;
+    margin: 1rem auto;
+    width: 50%;
+    cursor: pointer;
+  }
+
+  #file-drop-area span {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  #file-drop-area label {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: #eee;
+  }
+
+  #file-drop-area label:hover {
+    background-color: #ddd;
+  }
+
+  #upload-form {
+    display: none;
+  }
+</style>
+
+<div id="file-drop-area">
+	<span>Drag & Drop files here<br>or</span>
+	<label for="file">
+	  Browse Files
+	</label>
+  </div>
+
+<form method="post" enctype="multipart/form-data" id="upload-form">
+  {% csrf_token %}
+  <input hidden type="file" id="file" name="file">
+  <input type="submit" value="Upload" disabled>
+</form>
+
+<script>
+  const dropArea = document.getElementById('file-drop-area');
+  const fileInput = document.getElementById('file');
+  const uploadForm = document.getElementById('upload-form');
+
+  // Highlight drop area on drag over
+  dropArea.addEventListener('dragover', (event) => {
+    event.preventDefault();
+    dropArea.classList.add('dragging');
+  });
+
+  // Remove highlight on drag leave
+  dropArea.addEventListener('dragleave', () => {
+    dropArea.classList.remove('dragging');
+  });
+
+  // Handle file drop
+  dropArea.addEventListener('drop', (event) => {
+    event.preventDefault();
+    dropArea.classList.remove('dragging');
+    const files = event.dataTransfer.files;
+    fileInput.files = files;
+    uploadForm.style.display = 'block';
+    uploadForm.querySelector('input[type="submit"]').disabled = false;
+  });
+
+  // Handle file selection from input
+  fileInput.addEventListener('change', () => {
+    uploadForm.style.display = 'block';
+    uploadForm.querySelector('input[type="submit"]').disabled = false;
+  });
+</script>
+
 {% endblock %}
