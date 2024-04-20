@@ -104,18 +104,25 @@ def home(request):
 			source_file=course_dict['source_file']
 		)
         # call function to create course
-        return redirect('course/?course=' + str(new_course.id))
+        return redirect('course/?course_id=' + str(new_course.id))
     else:
         return render(request, 'home.html', {})
 
 def course (request):
     # Retrieve parameters from request.GET
     user = request.GET.get('user')
-    course_id = request.GET.get('course')
+    course_id = request.GET.get('course_id')
     course = Course.objects.get(id=course_id)
     context = {'user': user, 'course': course}
     return render(request, 'course.html', context)
-    
+
+def dashboard (request):
+    # Retrieve parameters from request.GET
+    user = request.GET.get('user')
+    courses = Course.objects.all()
+    context = {'user': user, 'courses': courses}
+    return render(request, 'dashboard.html', context)
+
 def login_user (request):
 	if request.method == 'POST': #if someone fills out form , Post it 
 		username = request.POST['username']
