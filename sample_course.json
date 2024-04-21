@@ -1,0 +1,24 @@
+{
+    "title": "TITLE GOES HERE",
+    "description": "DESCRIPTION OF THE COURSE GOES HERE",
+    "chapters": [
+        {
+            "title": "CHAPTER TITLE GOES HERE",
+            "description": "BRIEF PHRASE TO INTRODUCE THE CHAPTER",
+            "concepts": [
+                {
+                    "name": "NAME OF THE FIRST CONCEPT GOES HERE",
+                    "description": "BRIEFLY DESCRIBE THE CONCEPT HERE"
+                }
+            ],
+            "questions": [
+                {
+                    "question": "QUESTION GOES HERE",
+                    "options": ["OPTION 1 GOES HERE", "OPTION 2 GOES HERE", "OPTION 3 GOES HERE", "OPTION 4 GOES HERE"],
+                    "answer": "CORRECT OPTION GOES HERE",
+                    "explanation": "BRIEF EXPLANATION OF WHY THE CORRECT ANSWER IS CORRECT"
+                }
+            ]
+        }
+    ]
+}
