@@ -1,4 +1,6 @@
-MODEL_ID = "google/gemma-1.1-2b-it"
+OLLAMA_HOST = "localhost"
+OLLAMA_PORT = 11434
+MODEL_NAME = "gemma:2b"
 SYSTEM_PROMPT = """Create a JSON of type 'course' with the following fields: 'title', 'description', 'chapters'.
 Chapters is a list of objects with fields 'title', 'questions'.
 Questions is a list of objects with fields 'question', 'answers', 'correct_answer'.
@@ -43,7 +45,7 @@ Here is an example of a JSON file, leave the structure as it is and replace the 
         },
         {
             "title": "Chapter 2",
-            "description": "breve frase per introdurre il capitolo",
+            "description": "brief phrase to introduce the second chapter",
             "concepts": [
                 {
                     "name": "Concept 1",
@@ -65,7 +67,7 @@ Here is an example of a JSON file, leave the structure as it is and replace the 
         },
         {
             "title": "Chapter 3",
-            "description": "breve frase per introdurre il capitolo",
+            "description": "brief phrase to introduce the chapter",
             "concepts": [
                 {
                     "name": "Concept 1",
@@ -87,6 +89,7 @@ Here is an example of a JSON file, leave the structure as it is and replace the 
         }
     ]
 }
-Generate the course JSON from the text which is given by the user, which is the course material."""
-OLLAMA_HOST = "localhost"
-OLLAMA_PORT = 11434
+Generate the course JSON from the following text, which is the course material:
+
+"""
+
