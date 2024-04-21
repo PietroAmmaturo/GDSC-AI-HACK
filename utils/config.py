@@ -1,6 +1,7 @@
 OLLAMA_HOST = "localhost"
 OLLAMA_PORT = 11434
-MODEL_NAME = "llama3"
+DEMO = True
+MODEL_NAME = "gemma"
 SYSTEM_PROMPT = """Your job is to summarize and structure in paragraphs the text which is given to you by the user.
 Create a JSON with the following fields: 'title', 'description', 'chapters'.
 Chapters is a list of objects with fields 'title', 'questions'.
