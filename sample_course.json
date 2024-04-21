@@ -1,0 +1,84 @@
+{
+    "title": "Test title",
+    "description": "Test description",
+    "chapters": [
+        {
+            "title": "Chapter 1",
+            "description": "brief phrase to introduce the chapter",
+            "concepts": [
+                {
+                    "name": "Concept 1",
+                    "description": "small bullet point to recap the concept"
+                },
+                {
+                    "name": "Concept 2",
+                    "description": "small bullet point to recap the concept"
+                }
+            ],
+            "questions": [
+                {
+                    "question": "Question 1",
+                    "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+                    "answer": "Option 1",
+                    "explanation": "brief explanation of the correct answer"
+                },
+                {
+                    "question": "Question 2",
+                    "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+                    "answer": "Option 1",
+                    "explanation": "brief explanation of the correct answer"
+                },
+                {
+                    "question": "Question 3",
+                    "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+                    "answer": "Option 3",
+                    "explanation": "brief explanation of the correct answer"
+                }
+            ]
+        },
+        {
+            "title": "Chapter 2",
+            "description": "breve frase per introdurre il capitolo",
+            "concepts": [
+                {
+                    "name": "Concept 1",
+                    "description": "small bullet point to recap the concept"
+                },
+                {
+                    "name": "Concept 2",
+                    "description": "small bullet point to recap the concept"
+                }
+            ],
+            "questions": [
+                {
+                    "question": "Question 1",
+                    "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+                    "answer": "Option 1",
+                    "explanation": "brief explanation of the correct answer"
+                }
+            ]
+        },
+        {
+            "title": "Chapter 3",
+            "description": "breve frase per introdurre il capitolo",
+            "concepts": [
+                {
+                    "name": "Concept 1",
+                    "description": "small bullet point to recap the concept"
+                },
+                {
+                    "name": "Concept 2",
+                    "description": "small bullet point to recap the concept"
+                }
+            ],
+            "questions": [
+                {
+                    "question": "Question 1",
+                    "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+                    "answer": "Option 1",
+                    "explanation": "brief explanation of the correct answer"
+                }
+            ]
+        }
+    ]
+}
