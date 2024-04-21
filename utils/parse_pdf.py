@@ -21,8 +21,8 @@ def generate_course(filename: str):
     
     data = {
         "model": MODEL_NAME,
-        "system": SYSTEM_PROMPT,
-        "prompt": parsed_text,
+        #"system": SYSTEM_PROMPT,
+        "prompt": SYSTEM_PROMPT + parsed_text,
         "format": "json",
         "stream": False
     }
