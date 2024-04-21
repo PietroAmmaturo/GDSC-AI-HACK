@@ -5,10 +5,11 @@
 
   <h1>Dashboard</h1>
   {% if user.is_authenticated %}
-  <p>Name: {{user.first_name}} {{ user.last_name}}</p>
-  <p>Username: {{user.username}}</p>
-  <p>Email: {{user.email}}</p>
-{% endif %}
+  <p  style="font-size: 30px; display: inline;"> {{user.username}}</p>
+  {% load static %}
+  <p  style="font-size: 30px; display: inline; margin-left: 10px;"> {{points}}<img width="20px" style="display: inline;" src ="{% static 'assets/images/ai_star.png' %}"></img></p>
+  <p  style="font-size: 30px;">Completed courses: {{completed_courses}}</p>
+  {% endif %}
 </div>
 <div class="course-list">
 
