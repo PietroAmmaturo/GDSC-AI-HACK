@@ -2,10 +2,13 @@
 
 {% block content %}
 
-<h2 class ="text-center"> Register </h2>
+<div class="opener">
+	<h1>Register</h1>
+</div>
 
 <div class = "col-md-6 offset-md-3"> 
 
+<div class="custom-div"> 
 <form method="POST" action="{% url 'register' %}">
 		{% csrf_token %}
 
@@ -15,17 +18,17 @@
                     <small><sup>x</sup></small>
                   </button>
                
+				
+               		{% for field in form%}
+               		{% if field.errors%}
+               			{{field.errors}}
+               		{% endif%}
 
-               {% for field in form%}
-               	{% if field.errors%}
-               		{{field.errors}}
-               	{% endif%}
-
-               	{% endfor %}
+               		{% endfor %}
 
 
         </div>
-
+	
 
 
 		{% endif %}
@@ -38,4 +41,12 @@
 		</div>
 	</form>
 </div>
+</div>
+<style>
+	.custom-div {
+	position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+}
+</style>
 {% endblock %}
