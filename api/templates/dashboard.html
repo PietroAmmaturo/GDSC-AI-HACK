@@ -1,8 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="opener">
+
   <h1>Dashboard</h1>
+  {% if user.is_authenticated %}
+  <p>Name: {{user.first_name}} {{ user.last_name}}</p>
+  <p>Username: {{user.username}}</p>
+  <p>Email: {{user.email}}</p>
+{% endif %}
+</div>
+<div class="course-list">
+
+<h2>My Courses</h2>
+{% for course in courses %}
+<div class=" course">
+    <div class="accordion"><h2>{{ course.title }}</h2>         <a class="arrow" href="{% url 'course' %}?course_id={{course.id}}">&rarr;</a>
+    </div>
+    <div class="panel" >
+            <p>{{ course.description }}</p>
+    </div>
+</div>
+
+
+{% empty %}
+  <p>No personal courses.</p>
+{% endfor %}
+</div>
   <div class="course-list">
+    <h2>All Courses</h2>
     {% for course in courses %}
     <div class=" course">
         <div class="accordion"><h2>{{ course.title }}</h2>         <a class="arrow" href="{% url 'course' %}?course_id={{course.id}}">&rarr;</a>
@@ -27,14 +53,11 @@
         position: relative;
       max-width: 1200px;
       margin: 0 auto;
-      background-color: #474e5d;
-      padding: 60px 60px;
     }
     /* Style the buttons that are used to open and close the accordion panel */
     .accordion {
         position: relative;
-
-        background-color: #eee;
+        background-color: rgba(51, 51, 51, 0.5);
         display: flexbox;
     color: #444;
     cursor: pointer;
@@ -43,17 +66,11 @@
     border: none;
     outline: none;
     transition: 0.4s;
-    padding: 0 18px;
-    border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
+    padding: 18px;
+    border-radius: 6px;
     }
     .course {
-        background-color: white;
         margin-top: 18px;
-        padding: 18px;
-        border-radius: 6px;
-
-
     }
     .accordion h2{
         display: inline-block;
@@ -63,21 +80,25 @@
         top: 10px;
         right: 10px;
         font-size: xx-large;
+        font-weight: bolder;
     }
 
     /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
     .active, .accordion:hover {
-    background-color: #ccc;
+    background-color: rgba(51, 51, 51, 1);
+    }
+    .accordion.active {
+      border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
     }
 
     /* Style the accordion panel. Note: hidden by default */
     .panel {
-    background-color: white;
     display: none;
     overflow: hidden;
     padding: 20px 30px;
-      background-color: white;
       position: relative;
+      background-color: rgba(51, 51, 51, 0.5)
     }
 
     @media screen and (max-width: 600px) {

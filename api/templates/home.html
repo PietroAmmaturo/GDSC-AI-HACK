@@ -1,51 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>
-  Learning In The Deep
-</h1>
-<h2>
-  Empower Your Education: Let AI Craft Your Learning Journey
-</h2>
-
-<img src="assets/images/LITD_logo.png" width="500" style="display: block; margin: 0 auto; margin-top: 0px auto;">
-
-{% if user.is_authenticated %}
-  <p>Name: {{user.first_name}} {{ user.last_name}}</p>
-  <p>Username: {{user.username}}</p>
-  <p>Email: {{user.email}}</p>
-{% endif %}
+<div class="opener">
+  <h1>
+    Learning In The Deep
+  </h1>
+  <h2>
+    Empower Your Education: Let AI Craft Your Learning Journey
+  </h2>
+</div>
+{% load static %}
+<img src="{% static 'assets/images/LITD_logo.png' %}" width="250px" alt="My image" style="display: block; margin: 0 auto; margin-top: 0px auto;">
 
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background-image: url('assets/images/background.jpg');
-    background-size: cover; /* Adjusts the size of the background image */
-    background-position: center; /* Centers the background image */
-  }
 
-  @font-face {
-    font-family: 'League Spartan';
-    src: url('/assetsfonts/league-spartan-master/webfonts/leaguespartan-bold.ttf') format('truetype');
-    /* You can include additional src declarations for different font file formats */
-  }
-
-  h1 {
-    font-family: 'League Spartan', Arial, sans-serif;
-    color: #FFFFF0; /* Ivory color */
-    font-size: 70px; /* Increase font size */
-    text-align: center; /* Center align the text */
-    margin-bottom: 10px;
-  }
-
-  h2 {
-    font-family: 'League Spartan', Arial, sans-serif;
-    color: #FFFFF0; /* Ivory color */
-    font-size: 30px; /* Increase font size */
-    text-align: center; /* Center align the text */
-    margin-top: 10px;
-    margin-bottom: 0px;
-  }
 
   #file-drop-area {
     padding: 2rem;
@@ -56,11 +24,13 @@
     background-color: #ffffff; /* White background */
     border-radius: 20px; /* Larger corner radius */
     font-family: 'League Spartan',Arial, sans-serif; /* Change font */
+    border: 4px dashed #333;
   }
 
   #file-drop-area span {
     display: block;
     margin-bottom: 1rem;
+    color: #555;
   }
 
   #file-drop-area label {
@@ -68,12 +38,12 @@
     padding: 0.5rem 1rem;
     border: 1px solid #ccc;
     cursor: pointer;
-    background-color: #eee;
+    background-color: #333;
     border-radius: 10px;
   }
 
   #file-drop-area label:hover {
-    background-color: #ddd;
+    background-color: #555;
   }
 
   #upload-form {

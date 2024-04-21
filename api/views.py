@@ -115,17 +115,15 @@ def home(request):
 
 def course (request):
     # Retrieve parameters from request.GET
-    user = request.GET.get('user')
     course_id = request.GET.get('course_id')
     course = Course.objects.get(id=course_id)
-    context = {'user': user, 'course': course}
+    context = {'course': course}
     return render(request, 'course.html', context)
 
 def dashboard (request):
     # Retrieve parameters from request.GET
-    user = request.GET.get('user')
     courses = Course.objects.all()
-    context = {'user': user, 'courses': courses}
+    context = {'courses': courses}
     return render(request, 'dashboard.html', context)
 
 def login_user (request):
