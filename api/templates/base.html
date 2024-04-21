@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Hello, world!</title>
+    <title>Learning In The Deep</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'assets/images/LITD_logo.png' %}" type="image/x-icon">
   </head>
   <body>
 
@@ -24,7 +26,9 @@
       {% endif %}
       <a href="{% url 'dashboard' %}">Dashboard</a>
 
-      <a class="nav-link" href="{% url 'home' %}">Home</a> 
+      {% load static %}
+      <a class="nav-link" href="{% url 'home' %}"><img src="{% static 'assets/images/LITD_logo.png' %}" width="55px" alt="My image">
+      </a> 
 
 
     </div>
@@ -60,18 +64,19 @@
   a:link { 
   text-decoration: none; 
   color: #ffffff;
-} 
-a:visited { 
-  text-decoration: none; 
-  color: #dddddd;
-} 
-a:hover { 
-  text-decoration: none;
-  color: #888;
-} 
-a:active { 
-  text-decoration: none; 
-}
+  } 
+
+  a:visited { 
+    text-decoration: none; 
+    color: #dddddd;
+  } 
+  a:hover { 
+    text-decoration: none;
+    color: #888;
+  } 
+  a:active { 
+    text-decoration: none; 
+  }
 
     body {
     font-family: Arial, sans-serif;
@@ -122,7 +127,11 @@ a:active {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 25px;
+}
+
+.topnav a.nav-link {
+  padding: 0px
 }
 
 .topnav span {
@@ -132,7 +141,8 @@ a:active {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 /* Change the color of links on hover */
@@ -173,6 +183,36 @@ a:active {
     display: block;
     text-align: left;
   }
+}
+
+.custom-input {
+  /* Your existing input styles */
+  height: 50px;
+  width: 100%;
+  border-radius: 20px;
+  opacity: 0.8;
+  font-size: 20px; /* Increase font size for placeholder text */
+  font-family: 'League Spartan', Arial, sans-serif;
+}
+
+.custom-button {
+  /* Match input button style with input boxes */
+  height: 50px;
+  width: 15%;
+  max-width: 200px;
+  border-radius: 20px;
+  opacity: 0.8;
+  font-size: 20px;
+  background-color: #333; /* Customize button background color */
+  color: #fff; /* Set text color to white */
+  border: none; /* Remove button border */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  font-family: 'League Spartan', Arial, sans-serif;
+}
+
+/* Change button background color on hover */
+.custom-button:hover {
+  background-color: #555;
 }
 </style>
 
