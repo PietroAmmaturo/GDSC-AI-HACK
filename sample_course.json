@@ -1,22 +1,176 @@
 {
-    "title": "TITLE GOES HERE",
-    "description": "DESCRIPTION OF THE COURSE GOES HERE",
+    "title": "Introduction to Computer Security",
+    "description": "Introduction course to computer security and its main characteristics",
     "chapters": [
         {
-            "title": "CHAPTER TITLE GOES HERE",
-            "description": "BRIEF PHRASE TO INTRODUCE THE CHAPTER",
+            "title": "Basic Security Requirements",
+            "description": "The CIA paradigm for information security establishes 3 requisites",
             "concepts": [
                 {
-                    "name": "NAME OF THE FIRST CONCEPT GOES HERE",
-                    "description": "BRIEFLY DESCRIBE THE CONCEPT HERE"
+                    "name": "Confidentiality",
+                    "description": "The information can be accessed only by authorized entities"
+                },
+                {
+                    "name": "Integrity",
+                    "description": "The information can be modified only by authorized entities and in the way they are intended to do it"
+                },
+                {
+                    "name": "Availability",
+                    "description": "The information must be available to all the parties who have a right to access it, within specified time constraints"
                 }
             ],
             "questions": [
                 {
-                    "question": "QUESTION GOES HERE",
-                    "options": ["OPTION 1 GOES HERE", "OPTION 2 GOES HERE", "OPTION 3 GOES HERE", "OPTION 4 GOES HERE"],
-                    "answer": "CORRECT OPTION GOES HERE",
-                    "explanation": "BRIEF EXPLANATION OF WHY THE CORRECT ANSWER IS CORRECT"
+                    "question": "Which of the following is not a CIA paradigm component?",
+                    "options": ["Confidentiality", "Integrity", "Availability", "Reliability"],
+                    "answer": "Reliability",
+                    "explanation": "CIA paradigm components are Confidentiality, Integrity and Availability"
+                },
+                {
+                    "question": "What is the definition of Confidentiality?",
+                    "options": ["Information can be accessed only by authorized entities", "Information must travel fast from sender to receiver", "Cryptographic keys must be stored in a secure place", "Information must be available at all times"],
+                    "answer": "Information can be accessed only by authorized entities",
+                    "explanation": "The correct definition of Confidentiality is: Information can be accessed only by authorized entities"
+                }
+            ]
+        },
+        {
+            "title": "Vulnerabilities and Exploits",
+            "description": "What is the difference between vulnerabilities and exploits?",
+            "concepts": [
+                {
+                    "name": "Vulnerability",
+                    "description": "Something that allows to violate one of the constraints of the CIA paradigm"
+                },
+                {
+                    "name": "Exploit",
+                    "description": "A specific way to use one or more vulnerabilities to accomplish a specific objective that violates the constraints"
+                }
+            ],
+            "questions": [
+                {
+                    "question": "Which of the one exploits the other?",
+                    "options": ["Exploit exploit vulnerabilities", "Vulnerabilities exploit exploits", "Both exploit each other"],
+                    "answer": "Exploit exploit vulnerabilities",
+                    "explanation": "Exploits are a specific way to use one or more vulnerabilities to accomplish a specific objective"
+                }
+            ]
+        },
+        {
+            "title": "Assets, Risks, Threats",
+            "description": "Assets, Risks and Threats are the main components of the security risk management process",
+            "concepts": [
+                {
+                    "name": "Assets",
+                    "description": "An asset identifies what is valuable for an organization. It can be of many types, such as hardware, software, data, reputation"
+                },
+                {
+                    "name": "Risks",
+                    "description": "The risk is statistical and economical evaluation of the exposure to damage because of the presence of vulnerabilities and threats"
+                },
+                {
+                    "name": "Threats",
+                    "description": "A potential violation of CIA; circumstance potentially causing a CIA violation. For example denial of service, identity theft, data leak."
+                }
+            ],
+            "questions": [
+                {
+                    "question": "What is valuable for an organization?",
+                    "options": ["Assets", "Threats", "Data leaks"],
+                    "answer": "Assets",
+                    "explanation": "An asset identifies what is valuable for an organization"
+                },
+                {
+                    "question": "A laptop can be an asset for an organization",
+                    "options": ["True", "False"],
+                    "answer": "True",
+                    "explanation": "Hardware can also be valuable for an organization"
+                },
+                {
+                    "question": "A ransomware attack is a major threat for an organization, which one of the following CIA does it violate?",
+                    "options": ["Confidentiality", "Integrity", "Availability", "All of the above"],
+                    "answer": "All of the above",
+                    "explanation": "It violates integrity and availability because the encrypted data is unavailable. It also violates confidentiality because the data could be exfiltrated during the attack."
+                }
+            ]
+        },
+        {
+            "title": "Attacks and Threat Agents",
+            "description": "The difference between attacks and threat agents",
+            "concepts": [
+                {
+                    "name": "Attack",
+                    "description": "is an intentional use of one or more exploits with the objective of compromising a system's CIA."
+                },
+                {
+                    "name": "Threat Agent",
+                    "description": "whoever/whatever may cause an attack to occur"
+                },
+                {
+                    "name": "Attackers, Hackers...",
+                    "description": "Hacker: someone with an advanced understanding of computers and computer networks, and willingness to learn everything. Attackers are NOT hackers"
+                }
+            ],
+            "questions": [
+                {
+                    "question": "Picking a lock to enter a building can be considered as an attack",
+                    "options": ["True", "False"],
+                    "answer": "True",
+                    "explanation": "It is an intentional attempt to compromise integrity"
+                },
+                {
+                    "question": "An attacker is an hacker",
+                    "options": ["True", "False"],
+                    "answer": "False",
+                    "explanation": "An attacker can also not be a technical person"
+                },
+                {
+                    "question": "The act of picking a lock can be considered a vulnerability of a building",
+                    "options": ["True", "False"],
+                    "answer": "False",
+                    "explanation": "Picking the lock exploits a vulnerability, it is not a vulnerability itself"
+                }
+            ]
+        },
+        {
+            "title": "Security as Risk Management",
+            "description": "The risk is statistical and economical evaluation of the exposure to damage because of the presence of vulnerabilities and threats",
+            "concepts": [
+                {
+                    "name": "Formula to calculate risk",
+                    "description": "Risk = Asset x Vulnerabilities x Threats"
+                },
+                {
+                    "name": "Security vs. Cost Balance",
+                    "description": "Security can be seen as a balance of the reduction of vulnerabilities + damage containment vs cost"
+                },
+                {
+                    "name": "Direct costs",
+                    "description": "Management, operational, equipment"
+                },
+                {
+                    "name": "Indirect costs (more relevant)",
+                    "description": "Less usability, slower performance, less privacy, reduced productivity"
+                }
+            ],
+            "questions": [
+                {
+                    "question": "Is Management a direct or indirect cost?",
+                    "options": ["Direct", "Indirect", "None"],
+                    "answer": "Direct",
+                    "explanation": "Management is a direct cost"
+                },
+                {
+                    "question": "The risk increases if the vulnerabilities increases",
+                    "options": ["True", "False"],
+                    "answer": "True",
+                    "explanation": "Risk = Asset x Vulnerabilities x Threats"
+                },
+                {
+                    "question": "Which of the following risk factors cannot be controlled directly by an organization",
+                    "options": ["Assets", "Vulnerabilities", "Threats"],
+                    "answer": "Threats",
+                    "explanation": "An organization can reduce its assets and vulnerabilities, but it cannot control the threats"
                 }
             ]
         }
