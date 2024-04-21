@@ -51,18 +51,20 @@
   }
 </style>
 
-<div id="file-drop-area">
-	<span>Drag & Drop files here<br>or</span>
-	<label for="file">
-	  Browse Files
-	</label>
-  </div>
-
-<form method="post" enctype="multipart/form-data" id="upload-form">
-  {% csrf_token %}
-  <input hidden type="file" id="file" name="file">
-  <input type="submit" value="Generate Course" disabled>
-</form>
+<div class="to-replace">
+  <div id="file-drop-area">
+    <span>Drag & Drop files here<br>or</span>
+    <label for="file">
+      Browse Files
+    </label>
+    </div>
+  
+  <form method="post" enctype="multipart/form-data" id="upload-form">
+    {% csrf_token %}
+    <input hidden type="file" id="file" name="file">
+  </form>
+  
+</div>
 
 <script>
   const dropArea = document.getElementById('file-drop-area');
@@ -86,15 +88,40 @@
     dropArea.classList.remove('dragging');
     const files = event.dataTransfer.files;
     fileInput.files = files;
-    uploadForm.style.display = 'block';
-    uploadForm.querySelector('input[type="submit"]').disabled = false;
+              // Submit the form
+              uploadForm.submit();
+    document.querySelector(".to-replace").innerHTML = '<div class="loading-container"><div class="loader"></div><p>Generating...</p></div>'
   });
 
   // Handle file selection from input
   fileInput.addEventListener('change', () => {
-    uploadForm.style.display = 'block';
-    uploadForm.querySelector('input[type="submit"]').disabled = false;
+          // Submit the form
+          uploadForm.submit();
+    document.querySelector(".to-replace").innerHTML = '<div class="loading-container"><div class="loader"></div><p>Generating...</p></div>'
+
   });
 </script>
 
+<style>
+    .loading-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: auto;
+    width: fit-content;
+  }
+
+  .loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 50px;
+    height: 50px;
+    animation: spin 1.5s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
 {% endblock %}
