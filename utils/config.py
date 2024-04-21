@@ -1,95 +1,37 @@
 OLLAMA_HOST = "localhost"
 OLLAMA_PORT = 11434
 MODEL_NAME = "gemma:2b"
-SYSTEM_PROMPT = """Create a JSON of type 'course' with the following fields: 'title', 'description', 'chapters'.
+SYSTEM_PROMPT = """Your job is to summarize and structure in paragraphs the text which is given to you by the user.
+Create a JSON with the following fields: 'title', 'description', 'chapters'.
 Chapters is a list of objects with fields 'title', 'questions'.
-Questions is a list of objects with fields 'question', 'answers', 'correct_answer'.
-Every question has 4 possible answers ('answers') and only one is the correct one ('correct_answer'). 
-Here is an example of a JSON file, leave the structure as it is and replace the contents: {
-    "title": "Test title",
-    "description": "Test description",
+Questions is a list of objects with fields 'question', 'options', 'answer', 'explanation'.
+Every question has 4 possible answers ('options') and only one is the correct one ('answer').
+The number of chapters, concepts, questions and options is not fixed. Try to generate as many chapters, concepts, questions and options as you can.
+Here is an example of a JSON file, leave the structure and replace everything that is UPPER CASE with relevant content:
+{
+    "title": "TITLE GOES HERE",
+    "description": "DESCRIPTION OF THE COURSE GOES HERE",
     "chapters": [
         {
-            "title": "Chapter 1",
-            "description": "brief phrase to introduce the chapter",
+            "title": "CHAPTER TITLE GOES HERE",
+            "description": "BRIEF PHRASE TO INTRODUCE THE CHAPTER",
             "concepts": [
                 {
-                    "name": "Concept 1",
-                    "description": "small bullet point to recap the concept"
-                },
-                {
-                    "name": "Concept 2",
-                    "description": "small bullet point to recap the concept"
+                    "name": "NAME OF THE FIRST CONCEPT GOES HERE",
+                    "description": "BRIEFLY DESCRIBE THE CONCEPT HERE"
                 }
             ],
             "questions": [
                 {
-                    "question": "Question 1",
-                    "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-                    "answer": "Option 1",
-                    "explanation": "brief explanation of the correct answer"
-                },
-                {
-                    "question": "Question 2",
-                    "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-                    "answer": "Option 1",
-                    "explanation": "brief explanation of the correct answer"
-                },
-                {
-                    "question": "Question 3",
-                    "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-                    "answer": "Option 3",
-                    "explanation": "brief explanation of the correct answer"
-                }
-            ]
-        },
-        {
-            "title": "Chapter 2",
-            "description": "brief phrase to introduce the second chapter",
-            "concepts": [
-                {
-                    "name": "Concept 1",
-                    "description": "small bullet point to recap the concept"
-                },
-                {
-                    "name": "Concept 2",
-                    "description": "small bullet point to recap the concept"
-                }
-            ],
-            "questions": [
-                {
-                    "question": "Question 1",
-                    "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-                    "answer": "Option 1",
-                    "explanation": "brief explanation of the correct answer"
-                }
-            ]
-        },
-        {
-            "title": "Chapter 3",
-            "description": "brief phrase to introduce the chapter",
-            "concepts": [
-                {
-                    "name": "Concept 1",
-                    "description": "small bullet point to recap the concept"
-                },
-                {
-                    "name": "Concept 2",
-                    "description": "small bullet point to recap the concept"
-                }
-            ],
-            "questions": [
-                {
-                    "question": "Question 1",
-                    "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-                    "answer": "Option 1",
-                    "explanation": "brief explanation of the correct answer"
+                    "question": "QUESTION GOES HERE",
+                    "options": ["OPTION 1 GOES HERE", "OPTION 2 GOES HERE", "OPTION 3 GOES HERE", "OPTION 4 GOES HERE"],
+                    "answer": "CORRECT OPTION GOES HERE",
+                    "explanation": "BRIEF EXPLANATION OF WHY THE CORRECT ANSWER IS CORRECT"
                 }
             ]
         }
     ]
 }
-Generate the course JSON from the following text, which is the course material:
+Generate the course JSON from the user text, which is the course material:
 
 """
-
