@@ -37,7 +37,6 @@ def generate_course(filename: str):
     }
 
     response = requests.post(url, headers=headers, data=json.dumps(data))
-    print(response.text)
     if response.status_code == 200:
         response_text = response.text
         data = json.loads(response_text)
