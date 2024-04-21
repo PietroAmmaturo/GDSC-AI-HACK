@@ -8,6 +8,7 @@ from .models import Course
 import uuid
 from api import settings
 from utils.parse_pdf import generate_course
+from random import randint
 
 # Create your views here.
 def home(request):
@@ -41,7 +42,7 @@ def course (request):
 def dashboard (request):
     # Retrieve parameters from request.GET
     courses = Course.objects.all()
-    context = {'courses': courses}
+    context = {'courses': courses, 'points': randint(1, 100), 'completed_courses': randint(1, 10), }
     return render(request, 'dashboard.html', context)
 
 def login_user (request):
