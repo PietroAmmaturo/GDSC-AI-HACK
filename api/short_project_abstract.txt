@@ -1,6 +1,0 @@
-"Learning In The Deep" is a web application designed to enhance users' studying experience.
-Upon uploading a PDF, the platform generates bullet points and a study path.
-Users earn gems based on their performance. While the platform is free to use,
-there's a limit on the number of study paths that can be generated. To unlock more paths,
-users spend gems earned from completing tasks or opt to purchase the full version for
-unlimited path generation.

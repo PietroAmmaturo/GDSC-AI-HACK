@@ -1,0 +1,9 @@
+"Learning In The Deep" is a web application designed to augment users' learning experience by using generative AI.
+Upon uploading any media file (e.g.: a PDF), the platform generates a course path formed by study blocks.
+Each study block contains bullet points summarizing the original document section, as well as a quiz to test
+if the user effectively learned the contents of the source.
+When users give a wrong answer, the correct answer is explained using generative AI.
+Users earn gems based on their performance. While the platform is free to use,
+there's a limit on the number of study paths that can be generated. To unlock more paths,
+users spend gems earned from completing tasks or opt to purchase the full version for
+unlimited path generation.
