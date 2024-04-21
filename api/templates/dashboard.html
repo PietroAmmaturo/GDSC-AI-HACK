@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="opener">
+
+  <h1>Dashboard</h1>
+  {% if user.is_authenticated %}
+  <p  style="font-size: 30px; display: inline;"> {{user.username}}</p>
+  {% load static %}
+  <p  style="font-size: 30px; display: inline; margin-left: 10px;"> {{points}}<img width="20px" style="display: inline;" src ="{% static 'assets/images/ai_star.png' %}"></img></p>
+  <p  style="font-size: 30px;">Completed courses: {{completed_courses}}</p>
+  {% endif %}
+</div>
+<div class="course-list">
+
+<h2>My Courses</h2>
+{% for course in courses %}
+<div class=" course">
+    <div class="accordion clickable"><h2>{{ course.title }}</h2>         <a class="arrow" href="{% url 'course' %}?course_id={{course.id}}">&rarr;</a>
+    </div>
+    <div class="panel" >
+            <p>{{ course.description }}</p>
+    </div>
+</div>
+
+
+{% empty %}
+  <p>No personal courses.</p>
+{% endfor %}
+</div>
+  <div class="course-list">
+    <h2>All Courses</h2>
+    {% for course in courses %}
+    <div class=" course">
+        <div class="accordion"><h2>{{ course.title }}</h2>         <a class="arrow" href="{% url 'course' %}?course_id={{course.id}}">&rarr;</a>
+        </div>
+        <div class="panel" >
+                <p>{{ course.description }}</p>
+        </div>
+    </div>
+
+
+    {% empty %}
+      <p>No courses available.</p>
+    {% endfor %}
+  </div>
+
+<style>
+
+* {
+      box-sizing: border-box;
+    }
+    .course-list {
+        position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    /* Style the buttons that are used to open and close the accordion panel */
+    .accordion {
+        position: relative;
+        background-color: rgba(51, 51, 51, 0.5);
+        display: flexbox;
+    color: #444;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    padding: 18px;
+    border-radius: 6px;
+    }
+    .course {
+        margin-top: 18px;
+    }
+    .accordion h2{
+        display: inline-block;
+    }
+    .accordion a{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: xx-large;
+        font-weight: bolder;
+    }
+
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    .active, .accordion:hover {
+    background-color: rgba(51, 51, 51, 1);
+    }
+    .accordion.active {
+      border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    /* Style the accordion panel. Note: hidden by default */
+    .panel {
+    display: none;
+    overflow: hidden;
+    padding: 20px 30px;
+      position: relative;
+      background-color: rgba(51, 51, 51, 0.5)
+    }
+
+    @media screen and (max-width: 600px) {
+        .course-list {
+      padding: 10px 10px;
+    }
+    .panel {
+    padding: 20px 10px;
+    }
+    .accordion {
+        padding: 20px 10px;
+
+    }
+}
+</style>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+    </script>
+{% endblock %}

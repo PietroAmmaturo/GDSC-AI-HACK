@@ -1,0 +1,17 @@
+Learning In The Deep
+Objective: Learning In The Deep is a web application designed to simplify the process of studying from PDF documents. Users can upload a PDF file, from which bullet points and a study roadmap with related questions will be generated. Users will answer the questions, and based on their performance, they will receive gems that they can use to generate additional study paths.
+Features:
+    1. PDF Upload: Provide users with an interface to upload their PDF documents directly to the web platform.
+    2. Bullet Points Extraction: Implement an algorithm to extract key information from the PDF and automatically generate a list of bullet points.
+    3. Study Path Generation: Utilize content analysis of the PDF to create a personalized study path. This path will include questions related to the concepts covered in the document.
+    4. Question User Interface: Present questions to users in an intuitive and user-friendly interface. Users will be able to answer the questions directly on the platform.
+    5. Performance Assessment: Evaluate users' responses to the questions and determine their level of proficiency in the subject matter.
+    6. Rewards and Gems: Reward users based on their performance. Users will receive gems based on correct answers and the quality of their study.
+    7. Usage Limits and In-App Purchases: Limit the number of study paths a user can generate for free. Users can exceed this limit by spending gems or purchasing the full version of the application.
+User Interaction Flow:
+    1. The user accesses the Learning In The Deep web app.
+    2. The user uploads their PDF document through the dedicated interface.
+    3. The web app automatically extracts bullet points from the PDF and generates a study path with related questions.
+    4. The user views the study path and begins answering the questions.
+    5. Upon completing the study path, the user receives an assessment of their performance and a number of gems based on correct answers.
+    6. The user can use the gems to generate additional study paths or obtain additional benefits, such as bypassing usage limits or accessing premium features.
