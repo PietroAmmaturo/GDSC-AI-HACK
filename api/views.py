@@ -19,7 +19,6 @@ def home(request):
         file_name = f"{file_uuid}.pdf"
         actual_file_name = fs.save(file_name, uploaded_file)
         course_dict = generate_course(actual_file_name)
-        print(course_dict)
         new_course = Course.objects.create(
 			title=course_dict['title'],
 			description=course_dict['description'],

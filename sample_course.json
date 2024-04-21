@@ -1,10 +1,10 @@
 {
     "title": "Introduction to Computer Security",
-    "description": "Introduction course to computer secutity and its main characteristics",
+    "description": "Introduction course to computer security and its main characteristics",
     "chapters": [
         {
             "title": "Basic Security Requirements",
-            "description": "CIA paradigm for information security estabilishes 3 requisites",
+            "description": "The CIA paradigm for information security establishes 3 requisites",
             "concepts": [
                 {
                     "name": "Confidentiality",
@@ -25,12 +25,18 @@
                     "options": ["Confidentiality", "Integrity", "Availability", "Reliability"],
                     "answer": "Reliability",
                     "explanation": "CIA paradigm components are Confidentiality, Integrity and Availability"
+                },
+                {
+                    "question": "What is the definition of Confidentiality?",
+                    "options": ["Information can be accessed only by authorized entities", "Information must travel fast from sender to receiver", "Cryptographic keys must be stored in a secure place", "Information must be available at all times"],
+                    "answer": "Information can be accessed only by authorized entities",
+                    "explanation": "The correct definition of Confidentiality is: Information can be accessed only by authorized entities"
                 }
             ]
         },
         {
-            "title": "Vulnerabilities VS Exploits",
-            "description": "The difference between vulnerabilities and exploits",
+            "title": "Vulnerabilities and Exploits",
+            "description": "What is the difference between vulnerabilities and exploits?",
             "concepts": [
                 {
                     "name": "Vulnerability",
@@ -51,12 +57,16 @@
             ]
         },
         {
-            "title": "Assets VS Threats",
-            "description": "The difference between assets and threats",
+            "title": "Assets, Risks, Threats",
+            "description": "Assets, Risks and Threats are the main components of the security risk management process",
             "concepts": [
                 {
                     "name": "Assets",
-                    "description": "An asset identifies what is valuable for an organization. It can be of many tipes, such as hardware, software, data, reputation"
+                    "description": "An asset identifies what is valuable for an organization. It can be of many types, such as hardware, software, data, reputation"
+                },
+                {
+                    "name": "Risks",
+                    "description": "The risk is statistical and economical evaluation of the exposure to damage because of the presence of vulnerabilities and threats"
                 },
                 {
                     "name": "Threats",
@@ -74,13 +84,18 @@
                     "question": "A laptop can be an asset for an organization",
                     "options": ["True", "False"],
                     "answer": "True",
-                    "explanation": "Hardware can be valuable for an organization"
+                    "explanation": "Hardware can also be valuable for an organization"
+                },
+                {
+                    "question": "A ransomware attack is a major threat for an organization, which one of the following CIA does it violate?",
+                    "options": ["Confidentiality", "Integrity", "Availability", "All of the above"],
+                    "answer": "All of the above",
+                    "explanation": "It violates integrity and availability because the encrypted data is unavailable. It also violates confidentiality because the data could be exfiltrated during the attack."
                 }
-
             ]
         },
         {
-            "title": "Attacks VS Threat Agents",
+            "title": "Attacks and Threat Agents",
             "description": "The difference between attacks and threat agents",
             "concepts": [
                 {
@@ -107,9 +122,14 @@
                     "question": "An attacker is an hacker",
                     "options": ["True", "False"],
                     "answer": "False",
-                    "explanation": "An attacker is not a hacker"
+                    "explanation": "An attacker can also not be a technical person"
+                },
+                {
+                    "question": "The act of picking a lock can be considered a vulnerability of a building",
+                    "options": ["True", "False"],
+                    "answer": "False",
+                    "explanation": "Picking the lock exploits a vulnerability, it is not a vulnerability itself"
                 }
-
             ]
         },
         {
@@ -145,6 +165,12 @@
                     "options": ["True", "False"],
                     "answer": "True",
                     "explanation": "Risk = Asset x Vulnerabilities x Threats"
+                },
+                {
+                    "question": "Which of the following risk factors cannot be controlled directly by an organization",
+                    "options": ["Assets", "Vulnerabilities", "Threats"],
+                    "answer": "Threats",
+                    "explanation": "An organization can reduce its assets and vulnerabilities, but it cannot control the threats"
                 }
             ]
         }
