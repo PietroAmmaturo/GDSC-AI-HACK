@@ -2,9 +2,11 @@
 
 {% block content %}
 
-<h2 class="text-center">Login</h2>
+<div class="opener">
+	<h1>Login</h1>
+</div>
 
-<div class="col-md-6 offset-md-3"> 
+<div class="login"> 
     <form method="POST">
         {% csrf_token %}
 
@@ -21,4 +23,11 @@
     </form>
 </div>
 
+<style>
+	    .login {
+        position: relative;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+</style>
 {% endblock %}

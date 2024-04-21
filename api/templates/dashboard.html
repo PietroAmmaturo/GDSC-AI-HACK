@@ -15,7 +15,7 @@
 <h2>My Courses</h2>
 {% for course in courses %}
 <div class=" course">
-    <div class="accordion"><h2>{{ course.title }}</h2>         <a class="arrow" href="{% url 'course' %}?course_id={{course.id}}">&rarr;</a>
+    <div class="accordion clickable"><h2>{{ course.title }}</h2>         <a class="arrow" href="{% url 'course' %}?course_id={{course.id}}">&rarr;</a>
     </div>
     <div class="panel" >
             <p>{{ course.description }}</p>
